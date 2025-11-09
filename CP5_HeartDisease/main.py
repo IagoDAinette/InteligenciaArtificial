@@ -58,7 +58,7 @@ async def predict_risk_query(
             thal
         ]
 
-        input_data = np.array(feature_list).reshape(1, -1)
+        input_data = np.array(feature_list, dtype=np.float64)
 
         prediction = model.predict(input_data)
         probabilities = model.predict_proba(input_data)
@@ -86,5 +86,5 @@ async def predict_risk_query(
 def read_root():
     return {"status": "ok", "model_loaded": model is not None}
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     uvicorn.run(app, host="0.0.0.0", port=8000)
