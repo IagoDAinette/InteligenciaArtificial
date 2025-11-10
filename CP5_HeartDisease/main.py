@@ -5,10 +5,10 @@ import numpy as np
 from fastapi import FastAPI, HTTPException
 
 try:
-    with open("Sprint4.pkl", "rb") as f:
+    with open("sprint4.pkl", "rb") as f:
         model = pickle.load(f)
 except FileNotFoundError:
-    print("ERRO FATAL: Arquivo do modelo 'lda_risk_dropout.pkl' não encontrado.")
+    print("ERRO FATAL: Arquivo do modelo 'sprint4.pkl' não encontrado.")
     model = None
 except Exception as e:
     print(f"ERRO FATAL: Não foi possível carregar o modelo. Erro: {e}")
@@ -20,7 +20,7 @@ app = FastAPI(
 )
 
 @app.get("/predict")
-async def predict_risk_query(
+async def sprint4(
     age,
     sex,	
     cp,	
